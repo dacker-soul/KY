@@ -60,7 +60,7 @@ bool ListInsertNoHead(LinkList &L, int i, int e)
     {
         return false;
     }
-    if (i == i)
+    if (i == 1)
     { // 插入第1个节点的操作与其他操作不同
         LNode *s = (LNode *)malloc(sizeof(LNode));
         s->data = e;
@@ -69,9 +69,9 @@ bool ListInsertNoHead(LinkList &L, int i, int e)
         return true;
     }
 
-    LNode *p;  //指针p指向当前扫描到的节点
-    int j = 1; // 当前p指向第1个节点
-    p = L;     // L指向头结点，头结点是第0个节点（不存数据）
+    LNode *p;                      //指针p指向当前扫描到的节点
+    int j = 1;                     // 当前p指向第1个节点
+    p = L;                         // L指向头结点，头结点是第0个节点（不存数据）
     while (p != NULL && j < i - 1) // 循环找到第i-1个节点
     {
         p = p->next;
@@ -143,4 +143,44 @@ bool DeleteNode(LNode *p)
     p->next = q->next; // q结点断开
     free(q);
     return true;
+}
+
+// 按位查找，返回第i个元素（带头结点）
+LNode *GetElem(LinkList L, int i)
+{
+    if (i < 0)
+    {
+        return NULL;
+    }
+    LNode *p = L;
+    int j = 0;
+    while (p != NULL && j < i)
+    {
+        p = p->next;
+        j++;
+    }
+    return p;
+}
+
+// 按值查找，找到数据域==e的结点
+LNode *LocateElem(LinkList L, int e)
+{
+    LNode *p = L->next;
+    while (p != NULL && p->data != e)
+    {
+        p = p->next;
+    }
+    return p;
+}
+
+// 求表的长度
+int Length(LinkList L)
+{
+    int len = 0;
+    LNode *p = L;
+    while (p->next != NULL)
+    {
+        p = p->next;
+        len++;
+    }
 }

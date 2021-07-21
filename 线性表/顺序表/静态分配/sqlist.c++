@@ -8,7 +8,7 @@ typedef struct
     int length;
 } SeqList;
 
-// 插入
+// 第num个位置插入value
 bool InsertList(SeqList &L, int num, int value)
 {
     if (num < 1 || num > L.length + 1) // num的范围
