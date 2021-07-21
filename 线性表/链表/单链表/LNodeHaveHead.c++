@@ -1,5 +1,5 @@
 #include <stdlib.h>
-
+#include <stdio.h>
 typedef struct LNode
 {
     int data;
@@ -183,4 +183,43 @@ int Length(LinkList L)
         p = p->next;
         len++;
     }
+}
+
+// 尾插法，建立单链表
+LinkList ListTailInsert(LinkList &L)
+{
+    int x;
+    L = (LNode *)malloc(sizeof(LNode));
+    L->next = NULL;
+    LNode *left, *right = L;
+    scanf("%d", &x);
+    while (x != 9999)
+    {
+        right = (LNode *)malloc(sizeof(LNode));
+        right->data = x;
+        left->next = right;
+        left = right;
+        scanf("%d", &x);
+    }
+    left->next = NULL;
+    return L;
+}
+
+// 头插法，建立单链表
+LinkList ListHeadInsert(LinkList &L)
+{
+    int x;
+    L = (LNode *)malloc(sizeof(LNode));
+    L->next = NULL;
+    LNode *tmp;
+    scanf("%d", &x);
+    while (x != 9999)
+    {
+        tmp = (LNode *)malloc(sizeof(LNode));
+        tmp->data = x;
+        tmp->next = L->next;
+        L->next = tmp;
+        scanf("%d", &x);
+    }
+    return L;
 }
