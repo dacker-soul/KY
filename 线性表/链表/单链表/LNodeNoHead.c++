@@ -6,7 +6,7 @@ typedef struct LLNode
     struct LLNode *next;
 } LNode, *LinkList;
 
-LinkList L = (LLNode *)malloc(sizeof(LNode));
+// LinkList L = (LLNode *)malloc(sizeof(LNode));
 
 // 不带头结点的，单链表
 bool InitListNoHead(LinkList &L)
@@ -19,4 +19,3 @@ bool Empty(LinkList L)
 {
     return L == NULL;
 }
-
