@@ -95,3 +95,14 @@ void get_next(SString T,int next[]){
         }
     }
 }
+
+// 优化next数组
+void get_nextval(){
+    nextval[1]=0
+    for(int j=2;j<=T.length;j++){
+        if (T.ch[next[j]]==T.ch[j])
+            nextval[j] = nextval[next[j]];
+        else
+            nextval[j]= next[j];    
+    }
+}
