@@ -10,7 +10,7 @@ void ShellSort(int A[],int n){
         for(j=i-d;j>0 && A[0]<A[j];j-=d){
           A[j+d] = A[j]; // 记录后移，查找插入的位置
         }
-        A[j+d] = A[0]
+        A[j+d] = A[0];
       }
     }
   } 
