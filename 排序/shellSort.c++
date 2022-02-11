@@ -15,7 +15,7 @@ void ShellSort(int A[], int n)
         {
           A[j + d] = A[j]; // 记录后移，查找插入的位置
         }
-        A[j + d] = A[0];
+        A[j+d] = A[0];
       }
     }
   }
